@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+
+
+    <title>Anytime Workouts</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+<style>
+    .container {
+        max-width: 500px;
+        padding: 10px;
+
+    }
+
+
+
+    .rectangle {
+
+        background: white;
+        border-radius: 15px;
+        padding-top: 17px;
+        padding-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: #000000;
+        text-decoration: none;
+    }
+
+
+</style>
+
+
+
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h4 class="col-5" style="font-weight:bold;">
+                <a href="{{ url_for('index') }}">Anytime Workouts</a>
+            </h4>
+            <div class="col">
+
+            </div>
+            <div class="col">
+            </div>
+
+            <h5 class="col my-2">Login</h5>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container my-lg-5 text-center ">
+        <div class="rectangle">
+            <h6 style="font-size: 13px;" class="text-center">Difficulty Level Selected</h6>
+            <button type="button" class="btn btn-light text-center" style="width: 75px; font-size: 12px;"
+                id="beginner">Beginner</button>
+            <button type="button" class="btn btn-light btn-sm" style="width: 75px; font-size: 12px;"
+                id="intermediate">Intermediate</button>
+            <button type="button" class="btn btn-light btn-sm" style="width: 75px; font-size: 12px;"
+                id="advanced">Advanced</button>
+            <br>
+            <h1 class=" text-center " style="font-size: 50px;" id="countdown">05:00</h1>
+            <button type="button" class=" btn btn-danger text-center" style="width: 75px; font-size: 15px;"
+                id="pause">Pause</button>
+            <button type="button" class=" btn btn-success text-center" style="width: 75px;font-size: 15px;"
+                id="resume">Resume</button>
+            <button type="button" class=" btn btn-primary text-center" style="width: 130px;font-size: 15px;"
+                id="start">Begin Workout</button>
+            <br>
+            <h5 id="countdown2"></h5>
+            <h5 id="countdown3"></h5>
+
+        </div>
+
+
+    </div>
+
+    <!--BEGINNER-->
+
+    <div class="card border-dark mx-auto " id="jumpingjacks" style="width: 23rem; column-gap: 400px">
+        <img src="https://www.icegif.com/wp-content/uploads/jumping-jacks-icegif-5.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Jumping Jacks</h5>
+            <p class="card-text">
+                1. Stand upright with your legs closed and arms to your side <br>
+                2. Jump into the air and spread your legs shoulder-width apart. Stretch your arms above your head <br>
+                3. Before landing from your jump, close your legs and put your arms to your side just as the initial
+                position <br>
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="RunningOnSpot" style="width: 23rem;">
+        <img src="https://177d01fbswx3jjl1t20gdr8j-wpengine.netdna-ssl.com/wp-content/uploads/2019/08/Run_A_B.gif"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Running On the Spot</h5>
+            <p class="card-text">1. Perform a light jog while remaining in the same spot</p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="HighKnees" style="width: 23rem;">
+        <img src="https://www.active.com/Assets/Fitness/580/Dorm+Workouts/high-knees.gif" class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">High Knees</h5>
+            <p class="card-text">1. Stand with your knees shoulder-width apart<br>
+                2. Alternatively bring up your knees to waist level and carefully land your foot
+            </p>
+             
+        </div>
+    </div>
+
+
+    <div class="card border-dark mx-auto" id="Lunges" style="width: 23rem;">
+        <img src="https://c.tenor.com/FKDGhd7VwAAAAAAC/estocadas-frontales.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Lunges</h5>
+            <p class="card-text">1. Stand straight with your feet shoulder width apart and hands on your hips <br>
+                2. Take a big step infront with your right leg and go down till your right knee makes a 90 degree angle
+                <br>
+                3. Push on your leg and come back to the starting position <br>
+                4. Perform the same movements for the next leg
+
+            </p>
+        </div>
+    </div>
+
+
+    <div class="card border-dark mx-auto" id="Squats" style="width: 23rem;">
+        <img src="https://177d01fbswx3jjl1t20gdr8j-wpengine.netdna-ssl.com/wp-content/uploads/2019/08/Squat_A_B.gif"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Squats</h5>
+            <p class="card-text"> 1. Stand straight and keep your feet shoulder width apart <br>
+                2. Extend your arms to help balance <br>
+                Tip: Remember to put your weight on the back of your foot, not on the front of your foot.
+                3. Push your hips back <br>
+                4. Squat down ensuring your knees are in-line with your ankles <br>
+                5. Once your hips are are below your knees or parallel with your knees, come back up
+
+
+
+                .</p>
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="SideLunges" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/04/Side-Lunges.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Side Lunges</h5>
+            <p class="card-text"> 1. Start with your hands on your hips and feet wider then shoulder-width <br>
+                                  2. Take a large step to the side with your left foot and bend your left knee till it reaches a 90 degree angle <br>
+                                  3. Push of your left foot and return to the starting position <br>
+                                  4. Take a large step to the side with your right foot and bend your right knee till it reahes a 90 degree angle <br>
+                                  5. Push of your right foot and return to the starting position <br>
+                                
+            </p>
+            
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="ReverseLunge" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/06/Reverse-Lunge.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Reverse Lunge</h5>
+            <p class="card-text"> 1. Stand straight with your hands on your hips to help balance <br>
+                2. Take a large step backward with your left foot <br>
+                3. Bend your right knee till it's at a 90 degree angle and bend your left knee till it's at a 90 degree
+                angle <br>
+                4. Push on left foot to return to the neutral position
+
+                .</p>
+        </div>
+    </div>
+
+
+    <div class="card border-dark mx-auto" id="StandingElbowtoKneeCrunch" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/10/Standing-Elbow-to-Knee.gif" class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Standing Elbow to Knee Crunch</h5>
+            <p class="card-text"> 1. Stand straight with your feet shoulder-width apart <br>
+                2. Place both your hands on the back of your head <br>
+                3. Make your left knee and right elbow touch by raising your left knee towards your right elbow and
+                lowering your right elbow to touch your left knee <br>
+                4. Do the same for your right knee and left elbow
+
+            </p>
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="KneePushUps" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2018/10/Knee-Push-Ups.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Knee Push Ups</h5>
+            <p class="card-text"> 1. Start by placing your knees and hands on the ground <br>
+                2. Extend your arms completely and place your hands shoulder-width apart <br>
+                3. Bend your arms and lower your body until your chest touches or is near the ground <br>
+                4. Push your body back up and straighten your arms
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="WallPushUps" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2018/10/Wall-Push-Ups.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Wall Push Ups</h5>
+            <p class="card-text">1. Stand a couple feet away from a wall - the further you are from the wall the harder
+                it is <br>
+                2. While keeping your feet stationary, place both hands on the wall and keep them shoulder-width apart
+                <br>
+                3. Move your torso towards the wall and bend your arms <br>
+                4. When your chest touches or is near the wall, push against the wall to straighten your arms
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="LegRaise" style="width: 23rem;">
+        <img src="https://www.foodspring.co.uk/magazine/wp-content/uploads/2020/11/Leg-raises-Giannis.gif"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Leg Raise</h5>
+            <p class="card-text"> 1. Lay flat with your back on the ground <br>
+                2. Press your hands on the ground to help stabilize yourself <br>
+                3. Without bending your knees, raise your legs till they make a 90 degree angle with your body <br>
+                4. Bring your legs down to the ground
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="DonkeyKick" style="width: 23rem;">
+        <img src="https://www.healthier.qld.gov.au/wp-content/uploads/2015/07/15_M_WIP02.gif" class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Single Leg Donkey Kick</h5>
+            <p class="card-text"> 1. Place your knees and hands on the floor and extend your arms <br>
+                2. Lift your right leg and slowly extend it upwards as much as you can <br>
+                3. Bring your leg down slowly and place your knee on the ground <br>
+                4. Do the same for your left leg
+
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="ButtKicks" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/04/Butt-Kicks.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Butt Kicks</h5>
+            <p class="card-text"> 1. Stand straight and keep your feet shoulder-width apart <br>
+                2. Bring your right heal to your buttocks and then place your foot back on the ground <br>
+                3. Do the same with your left foot <br>
+                4. Gradually increase your speed
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="ShadowBoxing" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/03/Side-to-Side-Punches.gif" class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Side to Side Punches</h5>
+            <p class="card-text">1. Stand straight with your feet shoulder-width apart. <br>
+                2. Punch forward while twisting your torso <br>
+                                                                  
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="OverheadArmClaps" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2020/04/Seated-Overhead-Claps.gif" class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Overhead Arm Claps</h5>
+            <p class="card-text">1. Either sitting on standing, start with your arms by your side <br>
+                2. Without bending your elbow clap your hands above you head
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="ArmCircles" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/08/Arm-Circles.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Arm Circless</h5>
+            <p class="card-text">1. Stand straight with your feet shoulder width apart <br>
+                2. Extend your arms on the sides and move them in a circular motion <br>
+                3. Start with rotating your arms in a small circular motion and gradually increase
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="HipAbduction" style="width: 23rem;">
+        <img src="https://www.vissco.com/wp-content/uploads/animation/sub/side-lying-hip-abduction.gif"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Side-Lying Hip Abduction</h5>
+            <p class="card-text">1. Lie on one side of your body <br>
+                2. Raise your leg upwards slowly, then bring it down slowly <br>
+                3. After 20 seconds, switch sides and perform the action for the other side
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="StandardCrunch" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/05/Crunches.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Standard Crunch</h5>
+            <p class="card-text"> 1. Lay on your back with your feet on the ground <br>
+                2. Put your hands on your head or accross your chest, contract your abs and inhale <br>
+                3. Exhale and bring your body up - Remeber to use your abdomen to bring yourself up so ensure you relax
+                your neck and head <br>
+                4. Come back down to the starting position
+
+            </p>
+             
+        </div>
+    </div>
+
+
+
+    <!--INTERMEDIATE-->
+
+
+
+
+
+    <div class="card border-dark mx-auto" id="JumpingLunge" style="width: 23rem;">
+        <img src="https://c.tenor.com/meIUZZ_2oZMAAAAC/lunge-jump.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Jumping Lunges</h5>
+            <p class="card-text">1. Stand straight with your feet shoulder width apart and hands on your hips <br>
+                2. Take a big step infront with your right leg and go down till your right knee makes a 90 degree angle
+                <br>
+                3. Jump up and quickly take a step forward and bend your left leg till your knee makes 90 degree angle
+                <br>
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="Plank" style="width: 23rem;">
+        <img src="https://cdn.xxl.thumbs.canstockphoto.com/man-on-abdominals-workout-basic-plank-posture-on-white-backgroun-stock-photography_csp6597880.jpg"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Plank</h5>
+            <p class="card-text"> 1. Lay on the floor with your forearms on the ground and your elbows inline with your
+                shoulders <br>
+                2. Engage your core and raise your hips upwards till your body is in a straight line <br>
+                3. Squeez your glutes and remain the in this position
+
+
+            </p>
+             
+        </div>
+    </div>
+
+
+    <div class="card border-dark mx-auto" id="Burpee" style="width: 23rem;">
+        <img src="https://c.tenor.com/u2-VJiigKCkAAAAM/exercise-jump.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Burpee</h5>
+            <p class="card-text"> 1. Stand straight with your feet shoulder width apart <br>
+                2. Jump into the air and land on your feet <br>
+                3. Swiftly drop down with your hands and feet on th ground <br>
+                4. Drop your chest to the ground and once on your feet jump up<br>
+
+
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="SquatAndPunch" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/07/Squat-and-Punch.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Squat And Punch</h5>
+            <p class="card-text"> 1. Stand straight and keep your feet shoulder width apart <br>
+                2. Extend your arms to help balance <br>
+                Tip: Remember to put your weight on the back of your foot, not on the front of your foot.
+                3. Push your hips back <br>
+                4. Squat down ensuring your knees are in-line with your ankles <br>
+                5. Once your hips are are below your knees or parallel with your knees, come back up <br>
+                6. Once at the starting position, perform two punches directly infront of you
+            </p>
+             
+        </div>
+    </div>
+
+
+
+    <div class="card border-dark mx-auto" id="MountainClimbers" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/06/Mountain-climbers.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Mountain Climbers</h5>
+            <p class="card-text">1. Place your hands and feet on the ground with your knees straight<br>
+                2. Bring your right knee towards your left hand - go as far as you can <br>
+                3. Bring your right leg back on the ground then bring your left knee towards your right hand <br>
+
+
+            </p>
+             
+        </div>
+    </div>
+
+
+
+    <div class="card border-dark mx-auto" id="HandWalkouts" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/02/Hand-Walkouts.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Hand Walkouts</h5>
+            <p class="card-text"> 1. Stand straight. Then bend down and touch the ground with your hands <br>
+                2. Walk ahead with your arms by putting one infront of the other until your head and knees are aligned
+                <br>
+                3. Walk back to the starting position
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="SitUp" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/05/Sit-Ups.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Sit Ups</h5>
+            <p class="card-text"> 1. Lay on your back with your knees bent <br>
+                2. Lift your torso until your body is upright <br>
+                3. Go back down to the starting position
+
+            </p>
+             
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!--ADVANCED-->
+    <div class="card border-dark mx-auto " id="Bearsquats" style="width: 23rem; ">
+        <img src="https://flabfix.com/wp-content/uploads/2019/08/Bear-Squats.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Bear Squats</h5>
+            <p class="card-text">1. Start with your hands and feet on the floor <br>
+                2. Bend your knees and bring your body down towards the ground <br>
+                3. once your knees are close to the ground, bring your body back up to how you began <br>
+
+
+
+            </p>
+             
+        </div>
+    </div>
+
+
+    <div class="card border-dark mx-auto" id="JumpSquats" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/08/Jump-Squats.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Jump Squats</h5>
+            <p class="card-text"> 1. Stand straight and keep your feet shoulder width apart <br>
+                2. Extend your arms to help balance <br>
+                Tip: Remember to put your weight on the back of your foot, not on the front of your foot.
+                3. Push your hips back <br>
+                4. Squat down ensuring your knees are in-line with your ankles <br>
+                5. Once your hips are are below your knees or parallel with your knees, jump up
+
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="PushUps" style="width: 23rem;">
+        <img src="https://c.tenor.com/gI-8qCUEko8AAAAC/pushup.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Push Ups</h5>
+            <p class="card-text"> 1. Start with your hands a little wider than shoulder-width apart, arms extended and
+                feet on the ground <br>
+                2. Bend your arms and lower your body until your chest touches or is near the ground. <br>
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="PlankToKneeTap" style="width: 23rem;">
+        <img src="https://post.greatist.com/wp-content/uploads/sites/2/2019/05/BODYWEIGHT-MOVES_PLANK-KNEE-TAPS_GRAIN.gif"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Plank-to-knee tap</h5>
+            <p class="card-text"> 1. Start in a plank position, with your hands and feet on the ground, hands
+                shoulder-width apart and body straight <br>
+                2. Tap your right hand with your left knee, then set your right hand back to its starting spot <br>
+                3. Next tap your left hand with your right knee, then set your left hand back to its starting spot <br>
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="TuckJump" style="width: 23rem;">
+        <img src="https://i.pinimg.com/originals/7f/2a/de/7f2adee8886b5964e937e0232edee31b.gif" class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Tuck Jump</h5>
+            <p class="card-text"> 1. Start with your feet shoulder-width apart and your arms by your side <br>
+                2. Bend your knees and jump up <br>
+                3. Once in the air, tuck your legs into your body by bending your knees and bringing your legs to your
+                stomach <br>
+                4. Straighten your legs and land on your feet <br>
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="ScissorKick" style="width: 23rem;">
+        <img src="https://image.2bstronger.com/article/fitness/21-sit-ups-you-won-t-totally-hate-39096/1020.gif"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Scissor Kick</h5>
+            <p class="card-text"> 1. Lay flat on the ground with your arms to your side <br>
+                2. Raise your legs up one after the other quickly
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="BicycleCrunch" style="width: 23rem;">
+        <img src="https://i.pinimg.com/originals/0e/fb/2c/0efb2cb1085ba429c4e7e5081e20b415.gif" class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Bicycle Crunch</h5>
+            <p class="card-text">
+
+
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="card border-dark mx-auto" id="MountainClimbersWPushUP" style="width: 23rem;">
+        <img src="https://flabfix.com/wp-content/uploads/2019/08/Push-Up-with-Mountain-Climbers.gif"
+            class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Mountain Climbers with Push UP</h5>
+            <p class="card-text"> 1. Place your hands and feet on the ground with your knees straight<br>
+                2. Bring your right knee towards your left hand - go as far as you can <br>
+                3. Bring your right leg back on the ground then bring your left knee towards your right hand <br>
+                4. Now at the starting position, perform a push-up
+            </p>
+             
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+<p id="demo"></p>
+
+
+
+
+
+
+
+<script>
+
+
+    var GuiTimer = $('#countdown');
+    var GuiPause = $('#pause').hide();
+    var GuiResume = $('#resume').hide();
+    var Guistart = $('#start').show();
+    var Jumpingjacks = $('#jumpingjacks').hide();
+    var RunningOnSpot = $('#RunningOnSpot').hide();
+    var HighKnees = $('#HighKnees').hide();
+    var Bearsquats = $('#Bearsquats').hide();
+    var Lunges = $('#Lunges').hide();
+    var Squats = $('#Squats').hide();
+    var SideLunges = $('#SideLunges').hide();
+    var PushUps = $('#PushUps').hide();
+    var JumpSquats = $('#JumpSquats').hide();
+    var JumpingLunge = $('#JumpingLunge').hide();
+    var Plank = $('#Plank').hide();
+    var ReverseLunge = $('#ReverseLunge').hide();
+    var StandingElbowtoKneeCrunch = $('#StandingElbowtoKneeCrunch').hide();
+    var KneePushUps = $('#KneePushUps').hide();
+    var WallPushUps = $('#WallPushUps').hide();
+    var LegRaise = $('#LegRaise').hide();
+    var JumpingSplitSquats = $('#JumpingSplitSquats').hide();
+    var DonkeyKick = $('#DonkeyKick').hide();
+    var ButtKicks = $('#ButtKicks').hide();
+    var ShadowBoxing = $('#ShadowBoxing').hide();
+    var OverheadArmClaps = $('#OverheadArmClaps').hide();
+    var ArmCircles = $('#ArmCircles').hide();
+    var Burpee = $('#Burpee').hide();
+    var SquatAndPunch = $('#SquatAndPunch').hide();
+    var MountainClimbers = $('#MountainClimbers').hide();
+    var PlankToKneeTap = $('#PlankToKneeTap').hide();
+    var HandWalkouts = $('#HandWalkouts').hide();
+    var HipAbduction = $('#HipAbduction').hide();
+    var TuckJump = $('#TuckJump').hide();
+    var StandardCrunch = $('#StandardCrunch').hide();
+    var SitUp = $('#SitUp').hide();
+    var ScissorKick = $('#ScissorKick').hide();
+    var BicycleCrunch = $('#BicycleCrunch').hide();
+    var MountainClimbersWPushUP = $('#MountainClimbersWPushUP').hide();
+
+
+
+
+
+    const beginnerExercise = [Jumpingjacks, ReverseLunge, Lunges, Squats, SideLunges, StandingElbowtoKneeCrunch, WallPushUps, , DonkeyKick, ButtKicks, ShadowBoxing, OverheadArmClaps, ArmCircles, HipAbduction, StandardCrunch];
+    const intermediateExercise = [KneePushUps, JumpSquats, RunningOnSpot, HighKnees, Plank, Burpee, SquatAndPunch, MountainClimbers, HandWalkouts, SitUp];
+    const advancedExercise = [Bearsquats, JumpingLunge, PushUps, PlankToKneeTap, TuckJump, LegRaise, ScissorKick, BicycleCrunch, MountainClimbersWPushUP];
+    var chosenDifficulty;
+
+
+    var go = false;
+
+
+
+    let difficulty = prompt("Select a Workout Difficulty: \n    a. Beginner \n    b. Intermediate \n    c. Advanced", "a , b or c");
+    if (difficulty == null || difficulty == "") {
+        alert("Please input your desired workout difficulty.");
+        document.location.reload()
+    }
+    else if (difficulty == "Beginner" || difficulty == "beginner" || difficulty == "a") {
+        chosenDifficulty = beginnerExercise
+        go = true;
+    }
+    else if (difficulty == "Intermediate" || difficulty == "intermediate" || difficulty == "b") {
+        chosenDifficulty = intermediateExercise
+        go = true;
+    }
+    else if (difficulty == "Advanced" || difficulty == "advanced" || difficulty == "c") {
+        chosenDifficulty = advancedExercise
+        go = true;            
+    }
+    else {
+        alert("Invalid input, please try again.");
+        document.location.reload()
+    }
+
+
+    //PROMPT WORKOUT DURATION
+    if (go == true) {
+
+
+        var setTime = parseInt(prompt("Enter the desired workout duration in minutes.\n \nNOTE: \nPlease only enter whole numbers, no decimals \n \n Workout duration can only be from 1 minute to 59 minutes", 5), 10);
+        if (setTime == null || difficulty == "") {
+            alert("Please input your desired workout duaration.");
+            document.location.reload()
+            var check1 = false;
+        }
+        else if (setTime < 1 || setTime > 59) {
+            alert("The workout duration is outisde of the range allowed. Workout duration has to be greater then 1 and less then 59 minutes. ");
+            document.location.reload()
+            var check2 = false
+        }
+        else if (setTime) {
+            var workoutDuration = setTime * 60000
+        }
+        else {
+            alert("Invalid input, please try again.");
+            document.location.reload()
+        }
+
+    }
+
+ 
+
+
+
+
+    var CountDown = (function () {
+        // Length ms 
+        var TimeOut = 10000;
+        // Interval ms
+        var TimeGap = 1000;
+        var TimeGap2 = 100000;
+
+        var CurrentTime = (new Date()).getTime();
+        var EndTime = (new Date()).getTime() + TimeOut;
+
+
+
+        choose = chosenDifficulty[Math.floor(Math.random() * chosenDifficulty.length)];
+
+
+        var Running = false;
+
+        var UpdateTimer = function () {
+            // Run till timeout
+            if (CurrentTime + TimeGap < EndTime) {
+                setTimeout(UpdateTimer, TimeGap);
+            }
+            // Countdown if running
+            if (Running) {
+                CurrentTime += TimeGap;
+                if (CurrentTime >= EndTime) {
+                    GuiTimer.css('color', 'red');
+                }
+
+
+
+            }
+
+
+            // Update Gui
+            var Time = new Date();
+            Time.setTime(EndTime - CurrentTime);
+            var Minutes = Time.getMinutes();
+            var Seconds = Time.getSeconds();
+
+            GuiTimer.html(
+                (Minutes < 10 ? '0' : '') + Minutes
+                + ':'
+                + (Seconds < 10 ? '0' : '') + Seconds);
+
+
+            if (Seconds == 1) {
+                choose.hide();
+                const myTimeout = setTimeout(1000);
+                choose = chosenDifficulty[Math.floor(Math.random() * chosenDifficulty.length)];
+                choose.show()
+
+
+            }
+
+
+            const index = chosenDifficulty.indexOf(choose);
+            if (index > -1) {
+                chosenDifficulty.splice(index, 1);
+            }
+
+
+            if ((Seconds == 59) && Running == true) {
+                startTimer();
+                var timeleft = 15;
+                function startTimer() {
+
+                    var downloadTimer = setInterval(function () {
+                        if (timeleft <= 0) {
+                            clearInterval(downloadTimer);
+                            document.getElementById("countdown2").innerHTML = "GO! ";
+                        } else {
+                            document.getElementById("countdown2").innerHTML = "Next Exercise starting in " + timeleft + " seconds";
+                        }
+                        timeleft -= 1;
+
+                        document.getElementById("pause").addEventListener("click", () => {
+                            clearInterval(downloadTimer);
+                        });
+
+                    }, 1000);
+
+                }
+
+                document.getElementById("resume").addEventListener("click", () => {
+                    startTimer();
+                });
+
+            }
+
+
+            if ((Seconds == 43) && Running == true) {
+                startTimer2();
+                var timeleft = 42;
+                function startTimer2() {
+
+                    var downloadTimer = setInterval(function () {
+                        if (timeleft <= 0) {
+                            clearInterval(downloadTimer);
+                            document.getElementById("countdown3").innerHTML = "STOP! ";
+                        } else {
+                            document.getElementById("countdown3").innerHTML = "Continue exercise till " + Minutes + ":00";
+                        }
+                        timeleft -= 1;
+
+                        document.getElementById("pause").addEventListener("click", () => {
+                            clearInterval(downloadTimer);
+                        });
+
+                    }, 1000);
+
+                }
+
+                document.getElementById("resume").addEventListener("click", () => {
+                    startTimer2();
+                });
+
+            }
+
+
+            if (Running) {
+
+                document.body.style.backgroundColor = '#ff6868';
+
+            }
+            else {
+                document.body.style.backgroundColor = '#93ffc6';
+            }
+
+
+        };
+
+
+
+
+
+
+
+        var Pause = function () {
+            Running = false;
+            GuiPause.hide();
+            GuiResume.show();
+
+
+
+        };
+
+        var Resume = function () {
+            Running = true;
+            GuiPause.show();
+            GuiResume.hide();
+            choose.show();
+
+
+        };
+
+
+        var Start = function (Timeout) {
+            TimeOut = Timeout;
+            CurrentTime = (new Date()).getTime();
+            EndTime = (new Date()).getTime() + TimeOut;
+            UpdateTimer();
+        };
+
+
+        var start = function () {
+            Running = true;
+            GuiPause.show();
+            GuiResume.hide();
+
+        };
+
+
+
+
+        return {
+            Pause: Pause,
+            Resume: Resume,
+            Start: Start,
+
+        };
+
+
+    })
+
+
+
+
+        (jQuery);
+
+
+
+    jQuery('#pause').on('click', CountDown.Pause);
+    jQuery('#resume').on('click', CountDown.Resume);
+    jQuery('#start').on('click', CountDown.Resume);
+
+
+
+    if (chosenDifficulty == beginnerExercise) {
+        $("#intermediate").hide();
+        $("#advanced").hide();
+
+    }
+    else if (chosenDifficulty == intermediateExercise) {
+        $("#beginner").hide();
+        $("#advanced").hide();
+    }
+    else if (chosenDifficulty == advancedExercise) {
+        $("#beginner").hide();
+        $("#intermediate").hide();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Hides start button once clicked
+    if ($("#start").click) {
+
+        $("#start").click(function () {
+            $("#start").hide();
+        })
+
+
+    }
+
+
+
+
+    // ms
+    CountDown.Start(workoutDuration);
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</html>
